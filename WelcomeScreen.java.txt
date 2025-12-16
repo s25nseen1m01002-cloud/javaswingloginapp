@@ -1,0 +1,16 @@
+import javax.swing.*;
+
+public class WelcomeScreen {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Welcome Screen");
+        frame.setSize(300, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        JLabel welcomeLabel = new JLabel("Welcome to IUB Swing App!");
+        welcomeLabel.setBounds(50, 40, 200, 25);
+        frame.add(welcomeLabel);
+
+        frame.setVisible(true);
+    }
+}

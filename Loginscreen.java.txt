@@ -1,0 +1,53 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class LoginScreen {
+    public static void main(String[] args) {
+        // Frame
+        JFrame frame = new JFrame("Login Screen");
+        frame.setSize(350, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // Username label and text field
+        JLabel userLabel = new JLabel("Username:");
+        userLabel.setBounds(20, 20, 80, 25);
+        frame.add(userLabel);
+
+        JTextField userText = new JTextField(20);
+        userText.setBounds(120, 20, 165, 25);
+        frame.add(userText);
+
+        // Password label and text field
+        JLabel passLabel = new JLabel("Password:");
+        passLabel.setBounds(20, 60, 80, 25);
+        frame.add(passLabel);
+
+        JPasswordField passText = new JPasswordField(20);
+        passText.setBounds(120, 60, 165, 25);
+        frame.add(passText);
+
+        // Login button
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(120, 100, 80, 25);
+        frame.add(loginButton);
+
+        // Action on button click
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = userText.getText();
+                String password = new String(passText.getPassword());
+
+                if(username.equals("student") && password.equals("1234")) {
+                    JOptionPane.showMessageDialog(frame, "Login Successful!");
+                    WelcomeScreen.main(null); // Open second screen
+                    frame.dispose(); // Close login screen
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Invalid Username or Password");
+                }
+            }
+        });
+
+        frame.setVisible(true);
+    }
+}
